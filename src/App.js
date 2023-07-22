@@ -2,6 +2,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import PageLayout from "./pages/Dashboard/PageLayout";
 import Home from "./pages/Home/Home";
+import { ThemeProvider } from "@mui/material";
+import { theme } from "./Theme";
 
 const DashboardLayout = () => {
   return (
@@ -16,7 +18,15 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "",
+        path: "projects",
+        element: <Home />,
+      },
+      {
+        path: "supervisor",
+        element: <Home />,
+      },
+      {
+        path: "files",
         element: <Home />,
       },
     ],
@@ -25,9 +35,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="app">
-      {/* <ThemeProvider theme={theme}> */}
-      <RouterProvider router={router} />
-      {/* </ThemeProvider> */}
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </div>
   );
 }

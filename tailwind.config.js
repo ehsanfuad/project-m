@@ -5,6 +5,11 @@ module.exports = {
     extend: {
       fontFamily: {
         iransans: ["iransans"],
+        iransansLight: ["iransansLight"],
+        iransansUltraLight: ["iransansUltraLight"],
+        iransansMedium: ["iransansMedium"],
+        iransansBold: ["iransansBold"],
+        iransansBlack: ["iransansBlack"],
       },
     },
   },

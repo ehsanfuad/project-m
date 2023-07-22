@@ -1,7 +1,12 @@
 import React from "react";
+import CardSummery from "../../components/CardSummery/CardSummery";
 
 function Home() {
-  return <p>Home</p>;
+  return (
+    <p>
+      <CardSummery />
+    </p>
+  );
 }
 
 export default Home;
