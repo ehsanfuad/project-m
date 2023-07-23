@@ -12,7 +12,7 @@ const items = [
   {
     icon: <VscProject size={22} />,
     title: "پروژه ها",
-    path: "/projects",
+    path: "/",
   },
   {
     icon: <BiUser size={22} />,
@@ -26,11 +26,12 @@ const items = [
   },
 ];
 function checkExistOrnot(active, itemPath) {
-  if (itemPath === "/profile/orders") {
-    if (active.indexOf(itemPath) >= 0) return true;
-  } else {
-    return active === itemPath ? true : false;
-  }
+  return active === itemPath ? true : false;
+  // if (active === "") {
+  //   if (active.indexOf(itemPath) >= 0) return true;
+  // } else {
+  //   return active === itemPath ? true : false;
+  // }
 }
 
 function Menu() {
