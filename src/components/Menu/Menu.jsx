@@ -11,13 +11,13 @@ import police from "../../data/police.png";
 const items = [
   {
     icon: <VscProject size={22} />,
-    title: "پروژه ها",
+    title: "خلاصه فعالیت ها",
     path: "/",
   },
   {
     icon: <BiUser size={22} />,
-    title: "ناظران",
-    path: "/supervisor",
+    title: "پروژه ها",
+    path: "/projects",
   },
   {
     icon: <AiFillFile size={22} />,

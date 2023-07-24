@@ -2,12 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  /* margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+  font-family: "iransans";
   direction: rtl;
   margin: 0;
 }
@@ -40,4 +35,12 @@ code {
 @font-face {
   font-family: "iransansBlack";
   src: local("iransans"), url(IRANSansWeb_Black.woff2) format("woff2");
+}
+@font-face {
+  font-family: "vazir";
+  src: local("vazir"), url(Vazirmatn-FD-Regular.ttf) format("ttf");
+}
+@font-face {
+  font-family: "vazirn";
+  src: local("vazirn"), url(Vazirmatn-FD-NL-Regular.ttf) format("ttf");
 }

@@ -20,26 +20,34 @@ ChartJS.register(
 );
 
 function VerticalBar() {
+  function formatNumberToFarsi(number) {
+    return number.toLocaleString("fa"); // Assuming the browser supports 'fa' locale
+  }
   const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
+    "فروردین",
+    "اردیبهشت",
+    "خرداد",
+    "تیر",
+    "مرداد",
+    "شهریور",
+    "مهر",
+    "آبان",
+    "آذر",
+    "دی",
+    "بهمن",
+    "اسفند",
   ];
   const data = {
     labels,
     datasets: [
+      //   {
+      //     label: "Dataset 1",
+      //     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      //     backgroundColor: "rgba(255, 99, 132, 0.5)",
+      //   },
       {
-        label: "Dataset 1",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-      {
-        label: "Dataset 2",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        label: "پروژه",
+        data: labels.map(() => faker.datatype.number({ min: 1, max: 1000 })),
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
     ],
@@ -52,7 +60,7 @@ function VerticalBar() {
       },
       title: {
         display: true,
-        text: "Chart.js Bar Chart",
+        text: "پروژه های انجام شده",
       },
     },
   };
