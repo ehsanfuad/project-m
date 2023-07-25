@@ -1,54 +1,55 @@
 import React from "react";
 import DataTable from "../../components/DataTable";
 import { projects } from "../../data/data";
+import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
 function Proj() {
   const columns = [
-    { field: "id", headerName: "شماره", width: 90 },
-    {
-      field: "img",
-      headerName: "عکس",
-      width: 100,
-      renderCell: (params) => {
-        return <img src={params.row.img || "/noavatar.png"} alt="" />;
-      },
-    },
+    { field: "id", headerName: "شماره", width: 30 },
     {
       field: "title",
       type: "string",
-      headerName: "عنوان",
-      width: 250,
+      headerName: "عنوان پروژه",
+      width: 300,
     },
     {
-      field: "color",
+      field: "owner",
       type: "string",
-      headerName: "Color",
+      headerName: "مجری",
+      width: 100,
+    },
+    {
+      field: "nazerElmi",
+      headerName: "ناظر علمی",
+      type: "string",
       width: 150,
     },
     {
-      field: "price",
-      type: "string",
-      headerName: "Price",
-      width: 200,
+      field: "progress",
+      headerName: "درصد پیشرفت",
+      width: 100,
+      renderCell: (params) => {
+        return <ProgressBar percentage={params.row.progress} />;
+      },
     },
-    {
-      field: "producer",
-      headerName: "Producer",
-      type: "string",
-      width: 200,
-    },
-    {
-      field: "createdAt",
-      headerName: "Created At",
-      width: 200,
-      type: "string",
-    },
-    {
-      field: "inStock",
-      headerName: "In Stock",
-      width: 150,
-      type: "boolean",
-    },
+    // {
+    //   field: "createdAt",
+    //   headerName: "Created At",
+    //   width: 200,
+    //   type: "string",
+    // },
+    // {
+    //   field: "peygiri",
+    //   headerName: "مسئول پیگیری",
+    //   width: 200,
+    //   type: "string",
+    // },
+    // {
+    //   field: "nazerSazmani",
+    //   type: "string",
+    //   headerName: "ناظر سازمانی",
+    //   width: 150,
+    // },
   ];
   return <DataTable slug="products" columns={columns} rows={projects} />;
 }

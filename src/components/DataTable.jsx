@@ -1,5 +1,5 @@
 import React from "react";
-import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridToolbar, faIR } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 //rtl
 import { CacheProvider } from "@emotion/react";
@@ -18,6 +18,15 @@ function DataTable(props) {
         {
           display: "none",
         },
+      "& .MuiDataGrid-columnHeaders": {
+        position: "sticky",
+      },
+      "& .MuiTablePagination-displayedRows": {
+        fontFamily: "vazirMedium",
+      },
+      "& .MuiInputBase-root": {
+        fontFamily: "vazirMedium",
+      },
     },
   });
   const classes = useClasses(styles);
@@ -30,53 +39,54 @@ function DataTable(props) {
     // mutation.mutate(id)
   };
 
-  const actionColumn = {
-    field: "action",
-    headerName: "Action",
-    width: 200,
-    renderCell: (params) => {
-      return (
-        <div className="action">
-          <Link to={`/${props.slug}/${params.row.id}`}>
-            <img src="/view.svg" alt="" />
-          </Link>
-          <div className="delete" onClick={() => handleDelete(params.row.id)}>
-            <img src="/delete.svg" alt="" />
-          </div>
-        </div>
-      );
-    },
-  };
+  // const actionColumn = {
+  //   field: "action",
+  //   headerName: "درصد پیشرفت",
+  //   width: 200,
+  //   renderCell: (params) => {
+  //     return (
+  //       <div className="action">
+  //         <Link to={`/${props.slug}/${params.row.id}`}>
+  //           <img src="/view.svg" alt="" />
+  //         </Link>
+  //         <div className="delete" onClick={() => handleDelete(params.row.id)}>
+  //           <img src="/delete.svg" alt="" />
+  //         </div>
+  //       </div>
+  //     );
+  //   },
+  // };
 
   return (
-    <div className="">
-      <CacheProvider value={cacheRtl}>
-        <DataGrid
-          style={{ width: "70vw" }}
-          className={classes.test}
-          rows={props.rows}
-          columns={[...props.columns, actionColumn]}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          slots={{ toolbar: GridToolbar }}
-          slotProps={{
-            toolbar: {
-              showQuickFilter: true,
-              quickFilterProps: { debounceMs: 500 },
-            },
-          }}
-          // pageSizeOptions={[5]}
-          // checkboxSelection
-          disableRowSelectionOnClick
-          disableColumnFilter
-          disableDensitySelector
-          disableColumnSelector
-        />
-      </CacheProvider>
+    <div>
+      {/* <CacheProvider value={cacheRtl}> */}
+      <DataGrid
+        style={{ width: "70vw" }}
+        className={classes.test}
+        rows={props.rows}
+        localeText={faIR.components.MuiDataGrid.defaultProps.localeText}
+        columns={[...props.columns]}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        slots={{ toolbar: GridToolbar }}
+        slotProps={{
+          toolbar: {
+            showQuickFilter: true,
+            quickFilterProps: { debounceMs: 500 },
+          },
+        }}
+        // pageSizeOptions={[5]}
+        // checkboxSelection
+        disableRowSelectionOnClick
+        disableColumnFilter
+        disableDensitySelector
+        disableColumnSelector
+      />
+      {/* </CacheProvider> */}
     </div>
   );
 }

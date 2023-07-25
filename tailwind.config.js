@@ -10,6 +10,7 @@ module.exports = {
         iransansMedium: ["iransansMedium"],
         iransansBold: ["iransansBold"],
         iransansBlack: ["iransansBlack"],
+        iransansNum: ["iransansNum"],
         vazir: ["vazir"],
         vazirn: ["vazirn"],
       },
