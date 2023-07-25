@@ -41,7 +41,7 @@ export const earningData = [
     pcColor: "red-600",
   },
 ];
-const convertToPersianNumbers = (number) => {
+export const convertToPersianNumbers = (number) => {
   const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
   return String(number).replace(/\d/g, (digit) => persianDigits[digit]);
 };
@@ -51,35 +51,35 @@ export const projects = [
     title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
     owner: "د. ویسی",
     nazerElmi: "م. علی احمدی",
-    progress: convertToPersianNumbers(16),
+    progress: 16,
   },
   {
     id: convertToPersianNumbers(2),
     title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
     owner: "د. ویسی",
     nazerElmi: "م. علی احمدی",
-    progress: convertToPersianNumbers(90),
+    progress: 90,
   },
   {
     id: convertToPersianNumbers(3),
     title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
     owner: "د. ویسی",
     nazerElmi: "م. علی احمدی",
-    progress: convertToPersianNumbers(87),
+    progress: 87,
   },
   {
     id: convertToPersianNumbers(4),
     title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
     owner: "د. ویسی",
     nazerElmi: "م. علی احمدی",
-    progress: convertToPersianNumbers(23),
+    progress: 23,
   },
   {
     id: convertToPersianNumbers(5),
     title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
     owner: "د. ویسی",
     nazerElmi: "احسان خیام باشی",
-    progress: convertToPersianNumbers(55),
+    progress: 55,
   },
   // {
   //   id: 2,
