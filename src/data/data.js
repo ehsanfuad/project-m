@@ -169,3 +169,4 @@ export const projects = [
   //   inStock: true,
   // },
 ];
+export const project = {};

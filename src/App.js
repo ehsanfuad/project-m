@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./Theme";
 import Projects from "./pages/Projects/Proj";
+import Project from "./pages/Project/Project";
 
 const DashboardLayout = () => {
   return (
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "project/:id?", element: <Project /> },
 ]);
 function App() {
   return (

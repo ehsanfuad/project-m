@@ -2,7 +2,8 @@ import React from "react";
 import DataTable from "../../components/DataTable";
 import { projects } from "../../data/data";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
-
+import { Link as RouterLink } from "react-router-dom";
+import { Link } from "@mui/material";
 function Proj() {
   const columns = [
     { field: "id", headerName: "شماره", width: 30 },
@@ -11,6 +12,18 @@ function Proj() {
       type: "string",
       headerName: "عنوان پروژه",
       width: 300,
+      renderCell: (params) => {
+        return (
+          <Link
+            to={`/project/${params.row.id}`}
+            component={RouterLink}
+            underline="none"
+            color="inherit"
+          >
+            <div className="text-lime-600 underline">{params.row.title}</div>
+          </Link>
+        );
+      },
     },
     {
       field: "owner",
@@ -27,7 +40,7 @@ function Proj() {
     {
       field: "progress",
       headerName: "درصد پیشرفت",
-      width: 100,
+      width: 250,
       renderCell: (params) => {
         return <ProgressBar percentage={params.row.progress} />;
       },
