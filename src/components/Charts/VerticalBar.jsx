@@ -65,7 +65,7 @@ function VerticalBar() {
     },
   };
 
-  return <Bar options={options} data={data} />;
+  return <Bar id={3} options={options} data={data} />;
 }
 
 export default VerticalBar;

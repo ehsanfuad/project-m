@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function BackButton({ title, backUrl }) {
   const navigate = useNavigate();
   return (
-    <div className="w-fit flex flex-row">
+    <div className="w-fit flex flex-row ">
       <div
         className="flex flex-row items-center gap-3 rounded-md py-3 px-5 bg-white hover:cursor-pointer"
         onClick={() => navigate("/projects")}
