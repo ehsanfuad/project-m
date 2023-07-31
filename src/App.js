@@ -6,6 +6,8 @@ import { ThemeProvider } from "@mui/material";
 import { theme } from "./Theme";
 import Projects from "./pages/Projects/Proj";
 import Project from "./pages/Project/Project";
+import Login from "./pages/LogIn/Login";
+import SignUp from "./pages/SignUp/SignUp";
 
 const DashboardLayout = () => {
   return (
@@ -34,6 +36,8 @@ const router = createBrowserRouter([
     ],
   },
   { path: "project/:id?", element: <Project /> },
+  { path: "login", element: <Login /> },
+  { path: "signup", element: <SignUp /> },
 ]);
 function App() {
   return (

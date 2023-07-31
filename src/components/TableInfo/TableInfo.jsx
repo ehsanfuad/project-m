@@ -1,7 +1,16 @@
 import React from "react";
 import TrueFalse from "../TrueFalse/TrueFalse";
+import { Modal } from "@mui/material";
+import ShowImage from "../ShowImage/ShowImage";
 
-function TableInfo({ setActive, active, tableInfo }) {
+function TableInfo({
+  setActive,
+  active,
+  tableInfo,
+  handleOpen,
+  handleClose,
+  open,
+}) {
   return (
     <>
       {tableInfo.map((item, index) => (
@@ -24,6 +33,9 @@ function TableInfo({ setActive, active, tableInfo }) {
           </div>
         </div>
       ))}
+      <Modal onClose={handleClose} open={open}>
+        <ShowImage image={active.file} />
+      </Modal>
     </>
   );
 }
