@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { loginFields } from "../../data/data";
+import { signupFields } from "../../data/data";
 import Input from "../../components/Input/Input";
-import FormAction from "./FormAction";
+import FormAction from "../LogIn/FormAction";
 
-const fields = loginFields;
+const fields = signupFields;
 let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ""));
-function LogFrom() {
-  const [loginState, setLoginState] = useState(fieldsState);
+function SignUpForm() {
+  const [signupState, setSignupState] = useState(fieldsState);
 
   const handleChange = (e) => {
-    setLoginState({ ...loginState, [e.target.id]: e.target.value });
+    setSignupState({ ...signupState, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -20,9 +20,8 @@ function LogFrom() {
 
   //Handle Login API Integration here
   const authenticateUser = () => {
-    console.log("loginState", loginState);
+    console.log("signupState", signupState);
   };
-
   return (
     <form onSubmit={handleSubmit} className="mt-4">
       <div className="">
@@ -30,7 +29,7 @@ function LogFrom() {
           <Input
             key={field.id}
             handleChange={handleChange}
-            value={loginState[field.id]}
+            value={signupState[field.id]}
             labelText={field.labelText}
             labelFor={field.labelFor}
             id={field.id}
@@ -41,9 +40,9 @@ function LogFrom() {
           />
         ))}
       </div>
-      <FormAction handleSubmit={handleSubmit} text="ورود" action="submit" />
+      <FormAction handleSubmit={handleSubmit} text="ثبت نام" action="submit" />
     </form>
   );
 }
 
-export default LogFrom;
+export default SignUpForm;

@@ -7,9 +7,9 @@ function Login() {
     <div className="w-full flex flex-col items-center">
       <div>
         <AuthHeader
-          heading="Login to your account"
-          paragraph="Don't have an account yet? "
-          linkName="Signup"
+          heading="ورود به حساب کاربری"
+          paragraph="حساب کاربری ندارید؟ "
+          linkName="ثبت نام"
           linkUrl="/signup"
         />
         <LogFrom />
