@@ -9,6 +9,7 @@ import TrueFalse from "../../components/TrueFalse/TrueFalse";
 import TableInfo from "../../components/TableInfo/TableInfo";
 import { Button, Modal } from "@mui/material";
 import ShowImage from "../../components/ShowImage/ShowImage";
+import ShowComponent from "../../components/ShowComponent/ShowComponent";
 
 function Project() {
   const firstColNum = project.columnInfo.length / 2;
@@ -18,14 +19,22 @@ function Project() {
   const [active, setActive] = useState({ ...project.tableInfo[0], index: 0 });
   //dialog
   const [open, setOpen] = useState(false);
+  //show more static info (column info)
+  const [openMoreStaticInfo, setOpenMoreStaticInfo] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const getCurrentState = (states) => {
+    let current;
+    states.map((item, index) => {
+      if (item.state) {
+        current = item;
+      }
+    });
+    return current;
+  };
   return (
     <div className="bg-zinc-300  min-h-screen p-3 flex flex-col items-center gap-5">
       <ProjectHeader title="استانداردها، کاربردها و نقشه راه ارتباطات رادیویی" />
-      {/* <div className="flex flex-row flex-initial justify-center gap-5">
-        <div>right</div>
-        <div> */}
       <div className="flex flex-row w-full items-center justify-center gap-5">
         <Card>
           <div className="flex flex-row items-center w-96 gap-2">
@@ -40,15 +49,32 @@ function Project() {
           </div>
         </Card>
       </div>
-      <div className="flex flex-row w-full items-center justify-center gap-5">
+      <div className="flex flex-row w-full h-fit items-center justify-center gap-5">
         <Card>
-          <div className="w-96">
-            <InfoColumn info={firstCol} />
-          </div>
-        </Card>
-        <Card>
-          <div className="w-96">
-            <InfoColumn info={secondCol} />
+          <div className="flex flex-row gap-5">
+            <div className="w-96">
+              <InfoColumn info={firstCol} />
+              <div
+                onClick={() => setOpenMoreStaticInfo(true)}
+                className="text-lime-600 text-sm underline underline-offset-4 pt-2 cursor-pointer"
+              >
+                مشاهده بیشتر...
+              </div>
+            </div>
+            <div className="w-96">
+              <div className="flex flex-col gap-2">
+                {project.reports.map((report, index) => (
+                  <div className="flex flex-row gap-2 items-center border rounded px-2 py-5 bg-gradient-to-r from-lime-100 to-lime-300">
+                    <div className="text-xs w-32">
+                      {`${report.name} پروژه در مرحله:`}
+                    </div>
+                    <div className="text-lime-100 bg-lime-900 px-2 rounded-md">
+                      {getCurrentState(report.states).name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </Card>
       </div>
@@ -82,9 +108,27 @@ function Project() {
           </Card>
         </div>
       </div>
+      <Modal
+        open={openMoreStaticInfo}
+        onClose={() => setOpenMoreStaticInfo(false)}
+      >
+        <ShowComponent
+          componentToShow={
+            <Card>
+              <div className="flex flex-row gap-5">
+                <div className="w-96">
+                  <InfoColumn info={firstCol} />
+                </div>
+                <div className="w-96">
+                  <InfoColumn info={secondCol} />
+                </div>
+              </div>
+            </Card>
+          }
+          setOpenMoreStaticInfo={setOpenMoreStaticInfo}
+        />
+      </Modal>
     </div>
-    //</div>
-    //</div>
   );
 }
 

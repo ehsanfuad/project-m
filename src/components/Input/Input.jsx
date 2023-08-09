@@ -14,7 +14,7 @@ function Input({
   customClass,
 }) {
   return (
-    <div className="my-5">
+    <div className="w-60">
       <label htmlFor={labelFor} className="sr-only">
         {labelText}
       </label>

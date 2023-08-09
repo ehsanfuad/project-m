@@ -1,4 +1,9 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 import "./App.css";
 import PageLayout from "./pages/Dashboard/PageLayout";
 import Home from "./pages/Home/Home";
@@ -16,29 +21,20 @@ const DashboardLayout = () => {
     </>
   );
 };
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <DashboardLayout />,
-    children: [
-      {
-        path: "",
-        element: <Home />,
-      },
-      {
-        path: "projects",
-        element: <Projects />,
-      },
-      {
-        path: "files",
-        element: <Home />,
-      },
-    ],
-  },
-  { path: "project/:id?", element: <Project /> },
-  { path: "login", element: <Login /> },
-  { path: "signup", element: <SignUp /> },
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<DashboardLayout />}>
+        <Route path="" element={<Home />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="files" element={<Home />} />
+      </Route>
+      <Route path="project/:id?" element={<Project />} />
+      <Route path="login" element={<Login />} />
+      <Route path="signup" element={<SignUp />} />
+    </>
+  )
+);
 function App() {
   return (
     <div className="app">
@@ -50,3 +46,26 @@ function App() {
 }
 
 export default App;
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <DashboardLayout />,
+//     children: [
+//       {
+//         path: "",
+//         element: <Home />,
+//       },
+//       {
+//         path: "projects",
+//         element: <Projects />,
+//       },
+//       {
+//         path: "files",
+//         element: <Home />,
+//       },
+//     ],
+//   },
+//   { path: "project/:id?", element: <Project /> },
+//   { path: "login", element: <Login /> },
+//   { path: "signup", element: <SignUp /> },
+// ]);

@@ -2,8 +2,10 @@ import React from "react";
 import CardSummery from "../../components/CardSummery/CardSummery";
 import VerticalBar from "../../components/Charts/VerticalBar";
 import PieChart from "../../components/Charts/PieChart";
+import useFetch from "../../hooks/useFetch";
 
 function Home() {
+  // const { res, loading, error } = useFetch(`/users/16`);
   return (
     <>
       <CardSummery />

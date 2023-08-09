@@ -1,7 +1,6 @@
 import React from "react";
 import { DataGrid, GridColDef, GridToolbar, faIR } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-//rtl
 import { CacheProvider } from "@emotion/react";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";

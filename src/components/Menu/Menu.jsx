@@ -2,7 +2,7 @@ import { Box, Divider, Link, Typography, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { VscProject } from "react-icons/vsc";
-import { BiUser } from "react-icons/bi";
+import { GrProjects } from "react-icons/gr";
 import { AiFillFile } from "react-icons/ai";
 import { BiChevronLeft } from "react-icons/bi";
 import { theme } from "../../Theme";
@@ -15,7 +15,7 @@ const items = [
     path: "/",
   },
   {
-    icon: <BiUser size={22} />,
+    icon: <GrProjects size={22} />,
     title: "پروژه ها",
     path: "/projects",
   },

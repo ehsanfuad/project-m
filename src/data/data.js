@@ -3,6 +3,8 @@ import { BsClipboard2Data } from "react-icons/bs";
 import { SiPytest } from "react-icons/si";
 import { MdCloudDone } from "react-icons/md";
 import sample from "../data/sample.jpg";
+import sample2 from "../data/sample2.jpg";
+
 export const earningData = [
   {
     icon: <GrInProgress />,
@@ -246,12 +248,194 @@ export const project = {
       file: sample,
     },
   ],
+  reports: [
+    {
+      name: "فاز اول",
+      states: [
+        {
+          name: "استعلام از ناظر",
+          date: "۱۷/۵/۱۴۰۲",
+          state: true,
+          files: [
+            {
+              name: "استعلام",
+              file: sample,
+            },
+            {
+              name: "تایید",
+              file: sample2,
+            },
+          ],
+        },
+        {
+          name: "تایید ناظر علمی",
+          date: "۱۷/۳/۱۴۰۲",
+          state: false,
+          file: [sample, sample2],
+        },
+      ],
+    },
+    {
+      name: "فاز دوم",
+      states: [
+        {
+          name: "دریافت pdfاز مجری",
+          date: "۱۱/۳/۱۴۰۲",
+          state: true,
+          files: [
+            {
+              name: "pdf",
+              file: sample,
+            },
+            {
+              name: "تایید",
+              file: sample2,
+            },
+          ],
+        },
+        {
+          name: "  استعلام از اداره ناظر",
+          date: "۱۱/۳/۱۴۰۲",
+          state: true,
+          files: [
+            {
+              name: "استعلام از اداره ناظر",
+              file: sample,
+            },
+            {
+              name: "تایید",
+              file: sample2,
+            },
+          ],
+        },
+        {
+          name: "تاییدیه ناظر علمی",
+          date: "۱۱/۳/۱۴۰۲",
+          state: true,
+          files: [
+            {
+              name: "تاییدیه",
+              file: sample,
+            },
+            {
+              name: "تایید",
+              file: sample2,
+            },
+          ],
+        },
+        {
+          name: "تاییدیه اداره کل",
+          date: "۱۱/۳/۱۴۰۲",
+          state: true,
+          files: [
+            {
+              name: "تاییدیه",
+              file: sample,
+            },
+            {
+              name: "تایید",
+              file: sample2,
+            },
+          ],
+        },
+        {
+          name: " تاییدیه کمیسیون مرکز تحقیقات",
+          date: "۱۱/۳/۱۴۰۲",
+          state: false,
+          files: [
+            {
+              name: "کمیسیون",
+              file: sample,
+            },
+            {
+              name: "کمیسیون ۲",
+              file: sample2,
+            },
+          ],
+        },
+        {
+          name: "پرداخت",
+          date: "۱۱/۳/۱۴۰۲",
+          state: false,
+          files: [
+            {
+              name: "پرداخت",
+              file: sample,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "فاز سوم",
+      states: [
+        {
+          name: "استعلام از ناظر",
+          date: "۱۷/۵/۱۴۰۲",
+          state: true,
+          files: [
+            {
+              name: "استعلام",
+              file: sample,
+            },
+            {
+              name: "تایید",
+              file: sample2,
+            },
+          ],
+        },
+        {
+          name: "تایید ناظر علمی",
+          date: "۱۷/۳/۱۴۰۲",
+          state: true,
+          file: [sample, sample2],
+        },
+      ],
+    },
+    {
+      name: "فاز چهارم",
+      states: [
+        {
+          name: "استعلام از ناظر",
+          date: "۱۷/۵/۱۴۰۲",
+          state: true,
+          files: [
+            {
+              name: "استعلام",
+              file: sample,
+            },
+            {
+              name: "تایید",
+              file: sample2,
+            },
+          ],
+        },
+        {
+          name: "تایید ناظر علمی",
+          date: "۱۷/۳/۱۴۰۲",
+          state: true,
+          file: [sample, sample2],
+        },
+        {
+          name: "پرداخت",
+          date: "۱۱/۳/۱۴۰۲",
+          state: true,
+          files: [
+            {
+              name: "پرداخت",
+              file: sample,
+            },
+          ],
+        },
+      ],
+    },
+  ],
 };
 export const loginFields = [
   {
     labelText: "ایمیل",
-    labelFor: "email-address",
-    id: "email-address",
+    labelFor: "email",
+    id: "email",
     name: "email",
     type: "email",
     autoComplete: "email",
@@ -282,8 +466,8 @@ export const signupFields = [
   },
   {
     labelText: "ایمیل",
-    labelFor: "email-address",
-    id: "email-address",
+    labelFor: "email",
+    id: "email",
     name: "email",
     type: "email",
     autoComplete: "email",
