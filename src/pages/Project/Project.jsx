@@ -13,7 +13,6 @@ import {
   Dialog,
   IconButton,
   Modal,
-  Slide,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -42,11 +41,13 @@ function Project() {
   const [openMoreStaticInfo, setOpenMoreStaticInfo] = useState(false);
   //fulll page dialog
   const [openPhase, setOpenPhase] = useState(false);
+  //current report
+  const [currentReport, setCurrentReport] = useState({});
 
-  const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-  });
-
+  const handleClickReport = (report) => {
+    setOpenPhase(true);
+    setCurrentReport(report);
+  };
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const getCurrentState = (states) => {
@@ -58,6 +59,7 @@ function Project() {
     });
     return current;
   };
+  console.log(currentReport);
   return (
     <div className="bg-zinc-300  min-h-screen p-3 flex flex-col items-center gap-5">
       <ProjectHeader title="استانداردها، کاربردها و نقشه راه ارتباطات رادیویی" />
@@ -88,12 +90,12 @@ function Project() {
               </div>
             </div>
             <div className="w-96 mx-1.5">
-              <div
-                onClick={() => setOpenPhase(true)}
-                className="flex flex-col gap-2"
-              >
+              <div className="flex flex-col gap-2">
                 {currentProject.reports.map((report, index) => (
-                  <div className="flex flex-row gap-2 items-center border rounded px-2 py-5 bg-gradient-to-r from-lime-100 to-lime-300">
+                  <div
+                    onClick={() => handleClickReport(report)}
+                    className="flex flex-row gap-2 items-center border rounded px-2 py-5 bg-gradient-to-r from-lime-100 to-lime-300 cursor-pointer"
+                  >
                     <div className="text-xs w-35">
                       {`${report.name} پروژه در مرحله:`}
                     </div>
@@ -157,12 +159,7 @@ function Project() {
           setOpenMoreStaticInfo={setOpenMoreStaticInfo}
         />
       </Modal>
-      <Dialog
-        fullScreen
-        open={openPhase}
-        onClose={() => setOpenPhase(false)}
-        TransitionComponent={Transition}
-      >
+      <Dialog fullScreen open={openPhase} onClose={() => setOpenPhase(false)}>
         <AppBar sx={{ position: "relative" }}>
           <Toolbar>
             <IconButton
@@ -173,16 +170,6 @@ function Project() {
             >
               <MdClose />
             </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Sound
-            </Typography>
-            <Button
-              autoFocus
-              color="inherit"
-              onClick={() => setOpenPhase(false)}
-            >
-              save
-            </Button>
           </Toolbar>
         </AppBar>
         <div className="w-full h-full flex items-center justify-center">

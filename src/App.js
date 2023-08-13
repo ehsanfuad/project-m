@@ -13,6 +13,9 @@ import Projects from "./pages/Projects/Proj";
 import Project from "./pages/Project/Project";
 import Login from "./pages/LogIn/Login";
 import SignUp from "./pages/SignUp/SignUp";
+import Category from "./pages/Category/Category";
+import Color from "./pages/Color/Color";
+import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 
 const DashboardLayout = () => {
   return (
@@ -32,6 +35,12 @@ const router = createBrowserRouter(
       <Route path="project/:id?" element={<Project />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<SignUp />} />
+      {/* public page */}
+      <Route path="category" element={<Category />} />
+      {/* private page */}
+      <Route element={<PrivateRoutes />}>
+        <Route path="color" element={<Color />} />
+      </Route>
     </>
   )
 );

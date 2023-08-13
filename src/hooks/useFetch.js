@@ -10,7 +10,9 @@ const useFetch = (url) => {
         console.log(url);
         const response = await fetch(process.env.REACT_APP_API_URL + url, {
           headers: {
-            Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
+            Authorization: localStorage.getItem("jwt")
+              ? "bearer " + localStorage.getItem("jwt")
+              : "bearer " + process.env.REACT_APP_API_TOKEN,
           },
         });
         // const response = await fetch(url);

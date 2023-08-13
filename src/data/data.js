@@ -787,7 +787,7 @@ export const loginFields = [
     labelFor: "email",
     id: "email",
     name: "email",
-    type: "email",
+    type: "text",
     autoComplete: "email",
     isRequired: true,
     placeholder: "ایمیل",

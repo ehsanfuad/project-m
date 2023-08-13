@@ -25,6 +25,11 @@ function usePostData() {
       }
 
       const responseData = await response.json();
+      if (responseData) {
+        console.log(responseData);
+        localStorage.setItem("jwt", responseData.jwt);
+      }
+      console.log(responseData);
       setData(responseData);
     } catch (err) {
       setError(err.message);
