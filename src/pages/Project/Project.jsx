@@ -14,12 +14,14 @@ import {
   IconButton,
   Modal,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import ShowImage from "../../components/ShowImage/ShowImage";
 import ShowComponent from "../../components/ShowComponent/ShowComponent";
 import { useLocation, useParams } from "react-router-dom";
 import { MdClose } from "react-icons/md";
+import CirclePhase from "../../components/CirclePhase/CirclePhase";
 
 function Project() {
   const params = useParams();
@@ -42,8 +44,9 @@ function Project() {
   //fulll page dialog
   const [openPhase, setOpenPhase] = useState(false);
   //current report
-  const [currentReport, setCurrentReport] = useState({});
-
+  const [currentReport, setCurrentReport] = useState(currentProject.reports[0]);
+  //open tooltip
+  const [openTooltip, setOpenTooltip] = useState(false);
   const handleClickReport = (report) => {
     setOpenPhase(true);
     setCurrentReport(report);
@@ -99,9 +102,21 @@ function Project() {
                     <div className="text-xs w-35">
                       {`${report.name} پروژه در مرحله:`}
                     </div>
-                    <div className="text-lime-100 bg-lime-900 px-2 rounded-md">
+                    {/* <div className="text-lime-100 bg-lime-900 px-2 rounded-md">
                       {getCurrentState(report.states).name}
-                    </div>
+                    </div> */}
+                    {report.states.map((item, index) => (
+                      <Tooltip
+                        arrow
+                        // open={}
+                        placement="top"
+                        title={item.name}
+                      >
+                        <div className="flex gap-2">
+                          <CirclePhase state={item.state} />
+                        </div>
+                      </Tooltip>
+                    ))}
                   </div>
                 ))}
               </div>
@@ -161,7 +176,7 @@ function Project() {
       </Modal>
       <Dialog fullScreen open={openPhase} onClose={() => setOpenPhase(false)}>
         <AppBar sx={{ position: "relative" }}>
-          <Toolbar>
+          <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
             <IconButton
               edge="start"
               color="inherit"
@@ -170,10 +185,63 @@ function Project() {
             >
               <MdClose />
             </IconButton>
+            <div className="text-lg">{`${currentReport.name} پروژه`}</div>
+            <div className="w-9"></div>
           </Toolbar>
         </AppBar>
-        <div className="w-full h-full flex items-center justify-center">
-          <p className="text-xl">در حال به روز رسانی</p>
+        <div className="w-full flex flex-col justify-center px-10">
+          {/* dialog content */}
+          <div className="w-full flex gap-4 justify-between">
+            <div className="flex items-center mt-2 w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
+              وضعیت فاز: <ShowState state={currentReport.start} />
+            </div>
+            <div className="flex items-center mt-2 w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
+              مرحله:
+              <div className="text-lime-100 bg-lime-900 px-2 rounded-md">
+                {getCurrentState(currentReport.states).name}
+              </div>
+              <div className="text-lime-100 bg-lime-900 px-2 rounded-md">
+                {getCurrentState(currentReport.states).date}
+              </div>
+            </div>
+            <div className="flex items-center mt-2 w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
+              <div className="w-3/6"> درصد پیشرفت فاز</div>
+              <ProgressBar percentage={currentReport.progress} />
+            </div>
+          </div>
+          <div>
+            {/* az inja */}
+            <div className="flex flex-row items-start justify-center gap-5 relative p-5 bg-gray-200">
+              <Card>
+                <div className="w-96">
+                  <TableInfo
+                    active={active}
+                    setActive={setActive}
+                    tableInfo={currentReport.states}
+                    handleClose={handleClose}
+                    handleOpen={handleOpen}
+                    open={open}
+                  />
+                </div>
+              </Card>
+              <div className="sticky top-10 ">
+                <Card>
+                  <div className="w-96 p-4">
+                    <div className="flex gap-3 flex-col w-full">
+                      <div className="w-full flex justify-center rounded">
+                        {active.name}
+                      </div>
+                      <div className="text-sm">{active.comment}</div>
+                      <Button
+                        variant="contained"
+                        onClick={() => handleOpen()}
+                      >{`فایل ${active.name}`}</Button>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </div>
+          </div>
         </div>
       </Dialog>
     </div>

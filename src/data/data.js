@@ -253,6 +253,8 @@ export const project = [
     reports: [
       {
         name: "فاز اول",
+        progress: 25,
+        start: 3,
         states: [
           {
             name: "استعلام از ناظر",
@@ -279,6 +281,8 @@ export const project = [
       },
       {
         name: "فاز دوم",
+        progress: 50,
+        start: 2,
         states: [
           {
             name: "دریافت pdfاز مجری",
@@ -370,6 +374,9 @@ export const project = [
       },
       {
         name: "فاز سوم",
+        start: "تکمیل شده",
+        start: 2,
+        progress: 10,
         states: [
           {
             name: "استعلام از ناظر",
@@ -396,6 +403,8 @@ export const project = [
       },
       {
         name: "فاز چهارم",
+        progress: 15,
+        start: 1,
         states: [
           {
             name: "استعلام از ناظر",
@@ -600,6 +609,8 @@ export const project = [
     reports: [
       {
         name: "فاز اول",
+        progress: 25,
+        start: 3,
         states: [
           {
             name: "استعلام از ناظر",
@@ -626,6 +637,8 @@ export const project = [
       },
       {
         name: "فاز دوم",
+        progress: 50,
+        start: 2,
         states: [
           {
             name: "دریافت pdfاز مجری",
@@ -717,6 +730,9 @@ export const project = [
       },
       {
         name: "فاز سوم",
+        start: "تکمیل شده",
+        start: 2,
+        progress: 10,
         states: [
           {
             name: "استعلام از ناظر",
@@ -743,6 +759,8 @@ export const project = [
       },
       {
         name: "فاز چهارم",
+        progress: 15,
+        start: 1,
         states: [
           {
             name: "استعلام از ناظر",
