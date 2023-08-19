@@ -53,35 +53,35 @@ export const projects = [
     id: 1,
     title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
     owner: "د. طباطبایی",
-    nazerElmi: "د. فراهانی",
+    state: 3,
     progress: 23,
   },
   {
     id: 2,
     title: "احراز هویت غیر حضوری بیومتریک",
     owner: "د. ویسی",
-    nazerElmi: "د. معین",
+    state: 2,
     progress: 58,
   },
   // {
   //   id: convertToPersianNumbers(3),
   //   title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
   //   owner: "د. ویسی",
-  //   nazerElmi: "م. علی احمدی",
+  //   state: "م. علی احمدی",
   //   progress: 87,
   // },
   // {
   //   id: convertToPersianNumbers(4),
   //   title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
   //   owner: "د. ویسی",
-  //   nazerElmi: "م. علی احمدی",
+  //   state: "م. علی احمدی",
   //   progress: 23,
   // },
   // {
   //   id: convertToPersianNumbers(5),
   //   title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
   //   owner: "د. ویسی",
-  //   nazerElmi: "احسان خیام باشی",
+  //   state: "احسان خیام باشی",
   //   progress: 55,
   // },
 ];
@@ -275,7 +275,16 @@ export const project = [
             name: "تایید ناظر علمی",
             date: "۱۷/۳/۱۴۰۲",
             state: false,
-            file: [sample, sample2],
+            files: [
+              {
+                name: "استعلام",
+                file: sample,
+              },
+              {
+                name: "تایید",
+                file: sample2,
+              },
+            ],
           },
         ],
       },
@@ -614,7 +623,7 @@ export const project = [
         states: [
           {
             name: "استعلام از ناظر",
-            date: "۱۷/۵/۱۴۰۲",
+            date: "1402/05/21",
             state: true,
             files: [
               {
@@ -631,7 +640,16 @@ export const project = [
             name: "تایید ناظر علمی",
             date: "۱۷/۳/۱۴۰۲",
             state: false,
-            file: [sample, sample2],
+            files: [
+              {
+                name: "استعلام",
+                file: sample,
+              },
+              {
+                name: "تایید",
+                file: sample2,
+              },
+            ],
           },
         ],
       },

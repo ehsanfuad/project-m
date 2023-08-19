@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ProjectHeader from "../../components/ProjectHeader/ProjectHeader";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import Card from "../../components/Card/Card";
@@ -15,11 +15,9 @@ import {
   Modal,
   Toolbar,
   Tooltip,
-  Typography,
 } from "@mui/material";
-import ShowImage from "../../components/ShowImage/ShowImage";
 import ShowComponent from "../../components/ShowComponent/ShowComponent";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import CirclePhase from "../../components/CirclePhase/CirclePhase";
 
@@ -45,8 +43,11 @@ function Project() {
   const [openPhase, setOpenPhase] = useState(false);
   //current report
   const [currentReport, setCurrentReport] = useState(currentProject.reports[0]);
-  //open tooltip
-  const [openTooltip, setOpenTooltip] = useState(false);
+  // full screen dialog page pahse->state
+  const [currentState, setCurrentState] = useState(
+    currentProject?.reports[0]?.states[0]
+  );
+
   const handleClickReport = (report) => {
     setOpenPhase(true);
     setCurrentReport(report);
@@ -62,7 +63,7 @@ function Project() {
     });
     return current;
   };
-  console.log(currentReport);
+
   return (
     <div className="bg-zinc-300  min-h-screen p-3 flex flex-col items-center gap-5">
       <ProjectHeader title="استانداردها، کاربردها و نقشه راه ارتباطات رادیویی" />
@@ -106,12 +107,7 @@ function Project() {
                       {getCurrentState(report.states).name}
                     </div> */}
                     {report.states.map((item, index) => (
-                      <Tooltip
-                        arrow
-                        // open={}
-                        placement="top"
-                        title={item.name}
-                      >
+                      <Tooltip arrow placement="top" title={item.name}>
                         <div className="flex gap-2">
                           <CirclePhase state={item.state} />
                         </div>
@@ -145,10 +141,9 @@ function Project() {
                   {active.name}
                 </div>
                 <div className="text-sm">{active.comment}</div>
-                <Button
-                  variant="contained"
-                  onClick={() => handleOpen()}
-                >{`فایل ${active.name}`}</Button>
+                <Button variant="contained" onClick={() => handleOpen()}>
+                  {`فایل ${active.name}`}
+                </Button>
               </div>
             </div>
           </Card>
@@ -211,12 +206,12 @@ function Project() {
           </div>
           <div>
             {/* az inja */}
-            <div className="flex flex-row items-start justify-center gap-5 relative p-5 bg-gray-200">
+            <div className="flex flex-row items-start justify-center gap-5 relative p-5 mt-5  rounded bg-lime-100">
               <Card>
                 <div className="w-96">
                   <TableInfo
-                    active={active}
-                    setActive={setActive}
+                    active={currentState}
+                    setActive={setCurrentState}
                     tableInfo={currentReport.states}
                     handleClose={handleClose}
                     handleOpen={handleOpen}
@@ -229,13 +224,15 @@ function Project() {
                   <div className="w-96 p-4">
                     <div className="flex gap-3 flex-col w-full">
                       <div className="w-full flex justify-center rounded">
-                        {active.name}
+                        {currentState.name}
                       </div>
                       <div className="text-sm">{active.comment}</div>
-                      <Button
-                        variant="contained"
-                        onClick={() => handleOpen()}
-                      >{`فایل ${active.name}`}</Button>
+                      {currentState.files.map((file, index) => (
+                        <Button
+                          variant="contained"
+                          onClick={() => handleOpen()}
+                        >{`فایل ${file.name}`}</Button>
+                      ))}
                     </div>
                   </div>
                 </Card>

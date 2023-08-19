@@ -7,7 +7,6 @@ const useFetch = (url) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(url);
         const response = await fetch(process.env.REACT_APP_API_URL + url, {
           headers: {
             Authorization: localStorage.getItem("jwt")

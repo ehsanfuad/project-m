@@ -4,6 +4,7 @@ import { projects } from "../../data/data";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import { Link as RouterLink } from "react-router-dom";
 import { Link } from "@mui/material";
+import ShowState from "../../components/ShowState/ShowState";
 function Proj() {
   const columns = [
     { field: "id", headerName: "شماره", width: 30 },
@@ -32,10 +33,12 @@ function Proj() {
       width: 100,
     },
     {
-      field: "nazerElmi",
-      headerName: "ناظر علمی",
-      type: "string",
+      field: "state",
+      headerName: "وضعیت",
       width: 150,
+      renderCell: (params) => {
+        return <ShowState state={params.row.state} />;
+      },
     },
     {
       field: "progress",

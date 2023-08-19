@@ -26,7 +26,7 @@ function LogFrom() {
       password: loginState.password,
     };
     postData("/auth/local", dataToSend);
-    console.log(isLoading, error, data);
+    // console.log(isLoading, error, data);
   };
 
   return (
