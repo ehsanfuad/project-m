@@ -4,6 +4,7 @@ import { SiPytest } from "react-icons/si";
 import { MdCloudDone } from "react-icons/md";
 import sample from "../data/sample.jpg";
 import sample2 from "../data/sample2.jpg";
+import hefaPdf from "../data/hefa.pdf";
 
 export const earningData = [
   {
@@ -51,10 +52,10 @@ export const convertToPersianNumbers = (number) => {
 export const projects = [
   {
     id: 1,
-    title: "استانداردها، کاربردها و نقشه راه ارتباطات رادیویی",
-    owner: "د. طباطبایی",
+    title: "احراز هویت مجازی",
+    owner: "د. مهدی پورفتح",
     state: 3,
-    progress: 23,
+    progress: 100,
   },
   {
     id: 2,
@@ -91,21 +92,21 @@ export const project = [
     state: 3,
     progress: 23,
     columnInfo: [
-      { name: "مبلغ قرارداد", value: "۵۰۰" },
-      { name: "طبقه بندی", value: "محرمانه" },
+      { name: "مبلغ قرارداد", value: "13,500,000,000 ریال" },
+      { name: "طبقه بندی", value: "عادی" },
       {
         name: "زمان شروع",
-        value: "۹۸/۲/۱۰",
+        value: "1400/3/24",
       },
 
-      { name: "مدت قرارداد (ماه)", value: "۱۱" },
-      { name: "مجری", value: "سینا احمدیان" },
-      { name: "روش انتخاب مجری", value: "فراخوان و امتیازدهی" },
-      { name: "مسئول پیگیری", value: "ایزدی فر" },
+      { name: "مدت قرارداد (ماه)", value: "12" },
+      { name: "مجری", value: "د. مهدی پورفتح" },
+      { name: "روش انتخاب مجری", value: "؟" },
+      { name: "مسئول پیگیری", value: "؟" },
       { name: "مدیر پروژه", value: "مهدی زارعی" },
-      { name: "ناظر سازمانی", value: "کوروش رحمانی" },
-      { name: "ناظر علمی", value: "داوود فرهانی" },
-      { name: "تعداد فازها", value: "۵" },
+      { name: "ناظر سازمانی", value: "سرهنگ رضا صادقی راشد" },
+      { name: "ناظر علمی", value: "د.محمد شهرام معین" },
+      { name: "تعداد فازها", value: "4" },
       { name: "یگان بهره بردار", value: "فاوا" },
     ],
     tableInfo: [
@@ -114,14 +115,25 @@ export const project = [
         state: true,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        files: [
+          {
+            name: "استعلام",
+            file: hefaPdf,
+            isPdf: true,
+          },
+          // {
+          //   name: "تایید",
+          //   file: sample2,
+          //   isPdf: false,
+          // },
+        ],
       },
       {
         name: "سطح1: بیانیه نیاز",
-        state: true,
+        state: false,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        // files: [],
       },
       {
         name: "قرارداد ناظر",

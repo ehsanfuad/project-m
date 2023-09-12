@@ -16,7 +16,7 @@ function InfoColumn({ info }) {
             {item.name}
           </div>
           <div
-            className={`w-8/12 font-iransans h-8 text-sm my-1 flex items-center bg-gradient-to-r ${
+            className={`w-8/12 h-8 text-sm my-1 flex items-center bg-gradient-to-r ${
               index % 2 == 0
                 ? `from-lime-950 to-lime-700 text-lime-50`
                 : `from-lime-700 to-lime-300 text-lime-950`

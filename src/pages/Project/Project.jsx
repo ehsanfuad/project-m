@@ -47,12 +47,17 @@ function Project() {
   const [currentState, setCurrentState] = useState(
     currentProject?.reports[0]?.states[0]
   );
-
+  //which file clicked on
+  const [indexFile, setIndexFile] = useState(0);
   const handleClickReport = (report) => {
     setOpenPhase(true);
     setCurrentReport(report);
   };
   const handleOpen = () => setOpen(true);
+  const handleOpenFile = (index) => {
+    setIndexFile(index);
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
   const getCurrentState = (states) => {
     let current;
@@ -125,6 +130,7 @@ function Project() {
           <div className="w-96">
             <TableInfo
               active={active}
+              indexFile={indexFile}
               setActive={setActive}
               tableInfo={currentProject.tableInfo}
               handleClose={handleClose}
@@ -141,9 +147,27 @@ function Project() {
                   {active.name}
                 </div>
                 <div className="text-sm">{active.comment}</div>
-                <Button variant="contained" onClick={() => handleOpen()}>
-                  {`فایل ${active.name}`}
-                </Button>
+                {active.files
+                  ? active?.files?.map((file, index) =>
+                      file?.isPdf ? (
+                        <a
+                          className="bg-lime-600 rounded p-2 text-white text-center"
+                          href={file?.file}
+                          target="_blank"
+                        >
+                          {file?.name}
+                        </a>
+                      ) : (
+                        <Button
+                          variant="contained"
+                          onClick={() => handleOpenFile(index)}
+                          key={index}
+                        >
+                          {`فایل ${file?.name}`}
+                        </Button>
+                      )
+                    )
+                  : null}
               </div>
             </div>
           </Card>
@@ -211,6 +235,7 @@ function Project() {
                 <div className="w-96">
                   <TableInfo
                     active={currentState}
+                    indexFile={indexFile}
                     setActive={setCurrentState}
                     tableInfo={currentReport.states}
                     handleClose={handleClose}
@@ -227,12 +252,33 @@ function Project() {
                         {currentState.name}
                       </div>
                       <div className="text-sm">{active.comment}</div>
-                      {currentState.files.map((file, index) => (
+                      {currentState.files
+                        ? currentState?.files.map((file, index) =>
+                            file?.isPdf ? (
+                              <a
+                                className="bg-lime-600 rounded p-2 text-white text-center"
+                                href={file.file}
+                                target="_blank"
+                              >
+                                {file.name}
+                              </a>
+                            ) : (
+                              <Button
+                                variant="contained"
+                                onClick={() => handleOpenFile(index, file)}
+                                key={index}
+                              >
+                                {`فایل ${file.name}`}
+                              </Button>
+                            )
+                          )
+                        : null}
+                      {/* {currentState.files?.map((file, index) => (
                         <Button
                           variant="contained"
-                          onClick={() => handleOpen()}
+                          onClick={() => handleOpenFile(index, file)}
                         >{`فایل ${file.name}`}</Button>
-                      ))}
+                      ))} */}
                     </div>
                   </div>
                 </Card>

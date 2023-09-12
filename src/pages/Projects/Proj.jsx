@@ -12,7 +12,7 @@ function Proj() {
       field: "title",
       type: "string",
       headerName: "عنوان پروژه",
-      width: 300,
+      width: 250,
       renderCell: (params) => {
         return (
           <Link
@@ -30,7 +30,7 @@ function Proj() {
       field: "owner",
       type: "string",
       headerName: "مجری",
-      width: 100,
+      width: 150,
     },
     {
       field: "state",

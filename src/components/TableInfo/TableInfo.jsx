@@ -8,9 +8,11 @@ function TableInfo({
   active,
   tableInfo,
   handleOpen,
+  indexFile,
   handleClose,
   open,
 }) {
+  // console.log("active", active);
   return (
     <>
       {tableInfo.map((item, index) => (
@@ -33,9 +35,13 @@ function TableInfo({
           </div>
         </div>
       ))}
-      <Modal onClose={handleClose} open={open}>
-        <ShowImage image={active.file} />
-      </Modal>
+      {active?.files > 0 ? (
+        <Modal onClose={handleClose} open={open}>
+          {<ShowImage image={active.files[indexFile].file} />}
+        </Modal>
+      ) : (
+        ""
+      )}
     </>
   );
 }
