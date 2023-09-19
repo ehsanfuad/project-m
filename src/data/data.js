@@ -5,44 +5,56 @@ import { MdCloudDone } from "react-icons/md";
 import sample from "../data/sample.jpg";
 import sample2 from "../data/sample2.jpg";
 import hefaPdf from "../data/hefa.pdf";
+import shoraPdf from "../data/shora.pdf";
+import karnamakPdf from "../data/karnamak.pdf";
+import proposalPdf from "../data/proposal.pdf";
+import karbastPdf from "../data/karbast.pdf";
+import nazer1 from "../data/nazer1.pdf";
+import nazer2 from "../data/nazer2.pdf";
+import nazer3 from "../data/nazer3.pdf";
+import shenasname from "../data/shenasname.pdf";
+import peyvastFani from "../data/peyvastFani.pdf";
 
 export const earningData = [
   {
     icon: <GrInProgress />,
     amount: "",
-    percentage: "۴",
+    percentage: "۱",
     title: "در حال انجام",
     iconcolor: "#03C9D7",
     iconBg: "#E5FAFB",
     pcColor: "red-600",
+    path: "http://localhost:3000/project/2",
   },
   {
     icon: <BsClipboard2Data />,
     amount: "",
-    percentage: "۳",
-    title: "انجام شده",
+    percentage: "۰",
+    title: "لغو شده",
     iconColor: "rgb(255, 244, 229)",
     iconBg: "rgb(254, 201, 15)",
     pcColor: "green-600",
+    path: "http://localhost:3000/projects",
   },
   {
     icon: <SiPytest />,
     amount: "",
-    percentage: "۱",
+    percentage: "۰",
     title: "بررسی",
     iconColor: "rgb(228, 106, 118)",
     iconBg: "rgb(255, 244, 229)",
-
     pcColor: "green-600",
+    path: "http://localhost:3000/projects",
   },
   {
     icon: <MdCloudDone />,
     amount: "",
-    percentage: "۵",
+    percentage: "۱",
     title: "پایان یافته",
     iconColor: "rgb(0, 194, 146)",
     iconBg: "rgb(235, 250, 242)",
     pcColor: "red-600",
+    path: "http://localhost:3000/project/1",
   },
 ];
 export const convertToPersianNumbers = (number) => {
@@ -90,7 +102,7 @@ export const project = [
   {
     id: 1,
     state: 3,
-    progress: 23,
+    progress: 100,
     columnInfo: [
       { name: "مبلغ قرارداد", value: "13,500,000,000 ریال" },
       { name: "طبقه بندی", value: "عادی" },
@@ -133,69 +145,111 @@ export const project = [
         state: false,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        // files: [],
       },
       {
         name: "قرارداد ناظر",
-        state: false,
+        state: true,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        isfile: false,
+        files: [
+          {
+            name: "قرار داد",
+            file: nazer1,
+            isPdf: true,
+          },
+          {
+            name: "قرار داد",
+            file: nazer2,
+            isPdf: true,
+          },
+          {
+            name: "قرار داد",
+            file: nazer3,
+            isPdf: true,
+          },
+        ],
       },
       {
         name: "مصوبه شورا",
-        state: false,
+        state: true,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        files: [
+          {
+            name: "شورا",
+            file: shoraPdf,
+            isPdf: true,
+          },
+        ],
       },
       {
         name: "سامانه جامع",
-        state: false,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        state: true,
+        comment: "تایید شده توسط سرهنگ زارع",
+        file: null,
       },
       {
         name: "کارنامک",
         state: true,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        files: [
+          {
+            name: "رزومه",
+            file: karnamakPdf,
+            isPdf: true,
+          },
+        ],
       },
       {
         name: "شناسنامه",
         state: true,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        files: [
+          {
+            name: "شناسنامه",
+            file: shenasname,
+            isPdf: true,
+          },
+        ],
       },
       {
         name: "پروپزال",
         state: true,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        files: [
+          {
+            name: "پروپوزال",
+            file: proposalPdf,
+            isPdf: true,
+          },
+        ],
       },
       {
         name: "پیوست فنی",
-        state: false,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        state: true,
+        comment: "??",
+        files: [
+          {
+            name: "پیوست فنی",
+            file: peyvastFani,
+            isPdf: true,
+          },
+        ],
       },
       {
         name: "مجوز پژوهشگاه",
-        state: true,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        state: false,
+        comment: "ندارد",
         file: sample,
       },
       {
         name: "قرارداد مجری",
         state: false,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        comment: "??",
         file: sample,
       },
       {
@@ -203,20 +257,24 @@ export const project = [
         state: true,
         comment:
           "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
-        file: sample,
+        files: [
+          {
+            name: "کاربست",
+            file: karbastPdf,
+            isPdf: true,
+          },
+        ],
       },
       {
         name: "هماهنگی بهره بردار",
         state: true,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        comment: "??",
         file: sample,
       },
       {
         name: "تایید بهره بردار",
         state: true,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        comment: "??",
         file: sample,
       },
       {
@@ -228,49 +286,44 @@ export const project = [
       },
       {
         name: "مقاله",
-        state: true,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        state: false,
+        comment: "??",
         file: sample,
       },
       {
         name: "تسویه حساب",
         state: true,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        comment: "??",
         file: sample,
       },
       {
         name: "ابلاغ خاتمه یافتگی",
         state: true,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        comment: "??",
         file: sample,
       },
       {
-        name: "مصوبه کاربست",
-        state: true,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        name: "کمیته کاربست",
+        state: false,
+        comment: "??",
         file: sample,
       },
       {
         name: "گواهی اسناد",
         state: true,
-        comment:
-          "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.",
+        comment: "??",
         file: sample,
       },
     ],
     reports: [
       {
         name: "فاز اول",
-        progress: 25,
+        progress: 15,
         start: 3,
         states: [
           {
-            name: "استعلام از ناظر",
-            date: "۱۷/۵/۱۴۰۲",
+            name: "تحلیل نیاز،مطالعه و بررسی روش ها",
+            date: "۲۴/۳/۱۴۰۰",
             state: true,
             files: [
               {
@@ -302,7 +355,7 @@ export const project = [
       },
       {
         name: "فاز دوم",
-        progress: 50,
+        progress: 30,
         start: 2,
         states: [
           {
@@ -351,8 +404,8 @@ export const project = [
             ],
           },
           {
-            name: "تاییدیه اداره کل",
-            date: "۱۱/۳/۱۴۰۲",
+            name: "پیاده سازی اولیه سرویس احراز هویت غیر حضوری",
+            date: "۱۶/۳/۱۴۰۰",
             state: true,
             files: [
               {

@@ -211,20 +211,21 @@ function Project() {
         <div className="w-full flex flex-col justify-center px-10">
           {/* dialog content */}
           <div className="w-full flex gap-4 justify-between">
-            <div className="flex items-center mt-2 w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
+            <div className="flex items-center mt-2  w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
               وضعیت فاز: <ShowState state={currentReport.start} />
             </div>
-            <div className="flex items-center mt-2 w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
-              مرحله:
+            <div className="grid  items-center mt-2 w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
+              <div className=" flex w-3/6 md:row-span-2">مرحله:</div>
               <div className="text-lime-100 bg-lime-900 px-2 rounded-md">
                 {getCurrentState(currentReport.states).name}
               </div>
+              <div className="  w-3/6 row-span-2"> تاریخ شروع:</div>
               <div className="text-lime-100 bg-lime-900 px-2 rounded-md">
                 {getCurrentState(currentReport.states).date}
               </div>
             </div>
-            <div className="flex items-center mt-2 w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
-              <div className="w-3/6"> درصد پیشرفت فاز</div>
+            <div className="grid  items-center mt-2 row-span-2 w-1/3 border px-3 py-5 rounded bg-lime-100 gap-2">
+              <div className="w-4/6 row-span-2"> درصد پیشرفت فاز:</div>
               <ProgressBar percentage={currentReport.progress} />
             </div>
           </div>

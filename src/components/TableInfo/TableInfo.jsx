@@ -12,7 +12,6 @@ function TableInfo({
   handleClose,
   open,
 }) {
-  // console.log("active", active);
   return (
     <>
       {tableInfo.map((item, index) => (
